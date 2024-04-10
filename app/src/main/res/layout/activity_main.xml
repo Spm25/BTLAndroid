@@ -33,11 +33,10 @@
 
             </SearchView>
 
-            <ImageView
+            <Spinner
+                android:id="@+id/mySpinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_shopping">
-            </ImageView>
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <ListView
@@ -67,12 +66,12 @@
                 android:layout_weight="1"
                 android:src="@drawable/ic_paper" />
 
-            <ImageView
-                android:id="@+id/ivSettings"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_gear" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivSettings"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:src="@drawable/ic_gear" />-->
 
         </LinearLayout>
     </LinearLayout>

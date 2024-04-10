@@ -1,8 +1,8 @@
 package com.example.btlandroid;
 
-public class product {
+public class Product {
 private int id;
-private int sl;
+private int amount;
 private int price;
 private String Image;
 
@@ -14,9 +14,9 @@ private String Image;
         Image = image;
     }
 
-    public product(int id, int sl, int price, String image) {
+    public Product(int id, int amount, int price, String image) {
         this.id = id;
-        this.sl = sl;
+        this.amount = amount;
         this.price = price;
         this.Image = image;
     }
@@ -29,12 +29,12 @@ private String Image;
         this.id = id;
     }
 
-    public int getSl() {
-        return sl;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setSl(int sl) {
-        this.sl = sl;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public int getPrice() {

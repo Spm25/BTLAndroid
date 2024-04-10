@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class adapter extends BaseAdapter{
+public class AdapterProduct extends BaseAdapter{
     private Activity activity;
-    private ArrayList<product> data;
+    private ArrayList<Product> data;
     private LayoutInflater inflate;
-    public adapter(Activity activity,ArrayList<product> item){
+    public AdapterProduct(Activity activity, ArrayList<Product> item){
         this.activity = activity;
         this.data = item;
         inflate = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -51,7 +51,7 @@ public class adapter extends BaseAdapter{
         ImageView img = v.findViewById(R.id.image);
 
         sp.setText(String.valueOf(data.get(position).getId()));
-        sl.setText(String.valueOf(data.get(position).getSl()));
+        sl.setText(String.valueOf(data.get(position).getAmount()));
         gia.setText(String.valueOf(data.get(position).getPrice()));
         Uri path = Uri.parse(data.get(position).getImage());
         Glide.with(activity).load(path).into(img);
