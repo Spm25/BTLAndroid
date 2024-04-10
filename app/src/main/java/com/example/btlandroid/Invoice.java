@@ -2,13 +2,13 @@ package com.example.btlandroid;
 
 import java.util.Date;
 
-public class Bill {
+public class Invoice {
     private int id;
     private Date date;
     private int price;
     private String create;
 
-    public Bill(int id, Date date, int price, String create) {
+    public Invoice(int id, Date date, int price, String create) {
         this.id = id;
         this.date = date;
         this.price = price;

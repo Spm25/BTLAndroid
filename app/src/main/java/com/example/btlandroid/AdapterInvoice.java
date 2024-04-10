@@ -11,11 +11,11 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class Adapter_bill extends BaseAdapter {
+public class AdapterInvoice extends BaseAdapter {
     private Activity activity;
-    private ArrayList<Bill> data;
+    private ArrayList<Invoice> data;
     private LayoutInflater inflate;
-    public Adapter_bill(Activity activity,ArrayList<Bill> item){
+    public AdapterInvoice(Activity activity, ArrayList<Invoice> item){
         this.activity = activity;
         this.data = item;
         inflate = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
