@@ -44,4 +44,7 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+
+    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.2")
+    implementation("androidx.multidex:multidex:2.0.1")
 }
