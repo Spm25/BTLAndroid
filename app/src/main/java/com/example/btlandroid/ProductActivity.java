@@ -22,7 +22,7 @@ public class ProductActivity extends AppCompatActivity {
     private AdapterProduct adapterProduct;
     private ArrayList<String> menuItems;
     private ImageView imageView;
-
+//khai day
     IntentFilter intentFilter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
