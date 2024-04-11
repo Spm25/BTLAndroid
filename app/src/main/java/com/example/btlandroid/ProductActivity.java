@@ -75,16 +75,15 @@ public class ProductActivity extends AppCompatActivity {
             }
         });
 
-//        listView  = findViewById(R.id.list_item);
-//        listView.setAdapter(adapterProduct);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Product product = listproduct.get(position);
-//
-//                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Product product = listproduct.get(position);
+
+                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

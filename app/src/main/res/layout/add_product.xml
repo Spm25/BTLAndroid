@@ -25,7 +25,7 @@
             android:textAlignment="center"
             app:navigationIcon="@drawable/outline_arrow_back_24"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Chi tiết sản phẩm" />
+            app:title="Thêm sản phẩm" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
