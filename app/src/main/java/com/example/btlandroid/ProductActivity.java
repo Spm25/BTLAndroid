@@ -5,6 +5,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,7 +23,7 @@ public class ProductActivity extends AppCompatActivity {
     private AdapterProduct adapterProduct;
     private ArrayList<String> menuItems;
     private ImageView imageView;
-//khai dayyy
+    //khai dayyy
     IntentFilter intentFilter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,5 +74,17 @@ public class ProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        listView  = findViewById(R.id.list_item);
+//        listView.setAdapter(adapterProduct);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Product product = listproduct.get(position);
+//
+//                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         app:srcCompat="@android:drawable/ic_input_add"
+        android:contentDescription="Add a new product"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="105dp"
         android:layout_marginRight="20dp"/>
