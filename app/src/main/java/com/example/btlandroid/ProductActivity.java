@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductActivity extends AppCompatActivity {
     private ListView listView;
@@ -23,6 +24,7 @@ public class ProductActivity extends AppCompatActivity {
     private AdapterProduct adapterProduct;
     private ArrayList<String> menuItems;
     private ImageView imageView;
+    private static List<Product> data;
     //khai dayyy
     IntentFilter intentFilter;
     @Override
@@ -58,10 +60,10 @@ public class ProductActivity extends AppCompatActivity {
             }
         });
         listproduct = new ArrayList<Product>();
-        listproduct.add(new Product(1,2,100,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
-        listproduct.add(new Product(1,2,100,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
-        listproduct.add(new Product(1,2,100,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
-        listproduct.add(new Product(1,2,100,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
+        listproduct.add(new Product(1,"sp1",5, 100,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
+        listproduct.add(new Product(2,"sp2",6,150,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
+        listproduct.add(new Product(3,"sp3",4,180,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
+        listproduct.add(new Product(4,"sp4",3,200,"https://png.pngtree.com/element_origin_min_pic/16/11/12/70085543ffb787b0212163a5c5ba6635.jpg"));
 
         adapterProduct = new AdapterProduct(this,listproduct);
         listView.setAdapter(adapterProduct);
@@ -80,7 +82,6 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Product product = listproduct.get(position);
-
                 Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
                 startActivity(intent);
             }

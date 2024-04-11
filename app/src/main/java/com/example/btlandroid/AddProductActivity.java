@@ -34,7 +34,6 @@ public class AddProductActivity extends AppCompatActivity {
 
         mToolbar = findViewById(R.id.tb);
         setSupportActionBar(mToolbar);
-
         imageView = findViewById(R.id.iv_product);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

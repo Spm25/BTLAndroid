@@ -46,14 +46,14 @@ public class AdapterProduct extends BaseAdapter{
         if(v == null){
             v = inflate.inflate(R.layout.layout,null);
         }
-        LinearLayout li = v.findViewById(R.id.layout_item);
+        TextView id = v.findViewById(R.id.txtid);
         TextView sp = v.findViewById(R.id.txtsp);
         TextView sl = v.findViewById(R.id.txtsl);
         TextView gia = v.findViewById(R.id.txtgia);
         ImageView img = v.findViewById(R.id.image);
 
-
-        sp.setText(String.valueOf(data.get(position).getId()));
+        id.setText(String.valueOf(data.get(position).getId()));
+        sp.setText(String.valueOf(data.get(position).getName()));
         sl.setText(String.valueOf(data.get(position).getAmount()));
         gia.setText(String.valueOf(data.get(position).getPrice()));
         Uri path = Uri.parse(data.get(position).getImage());
