@@ -6,22 +6,28 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class InvoiceActivity extends AppCompatActivity {
     private ImageView imageView;
     private Spinner actionMenu;
     private ArrayList<String> menuItems;
-
+    private ListView listView;
+    private ArrayList<Invoice> listInvoice;
+    private AdapterInvoice adapterInvoice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        listView = findViewById(R.id.list_item);
         imageView = findViewById(R.id.ivCart);
 
         actionMenu = findViewById(R.id.mySpinner);
@@ -59,5 +65,10 @@ public class InvoiceActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        listInvoice = new ArrayList<Invoice>();
+        listInvoice.add(new Invoice(1,new Date(2023, 3, 10),100000,"Ha"));
+
+        adapterInvoice = new AdapterInvoice(this,listInvoice);
+        listView.setAdapter(adapterInvoice);
     }
 }
