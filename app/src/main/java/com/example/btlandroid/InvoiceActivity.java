@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class InvoiceActivity extends AppCompatActivity {
     private ImageView imageView;
@@ -26,7 +25,7 @@ public class InvoiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.product_layout);
         listView = findViewById(R.id.list_item);
         imageView = findViewById(R.id.ivCart);
 
@@ -48,7 +47,7 @@ public class InvoiceActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Lấy mục được chọn
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(InvoiceActivity.this, "Selected item: " + selectedItem, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(InvoiceActivity.this, "Selected item: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
 
             @Override

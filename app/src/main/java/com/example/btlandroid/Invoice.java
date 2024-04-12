@@ -6,13 +6,13 @@ public class Invoice {
     private int id;
     private Date date;
     private int price;
-    private String create;
+    private String creator;
 
-    public Invoice(int id, Date date, int price, String create) {
+    public Invoice(int id, Date date, int price, String creator) {
         this.id = id;
         this.date = date;
         this.price = price;
-        this.create = create;
+        this.creator = creator;
     }
 
     public int getId() {
@@ -39,11 +39,11 @@ public class Invoice {
         this.price = price;
     }
 
-    public String getCreate() {
-        return create;
+    public String getCreator() {
+        return creator;
     }
 
-    public void setCreate(String create) {
-        this.create = create;
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 }

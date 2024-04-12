@@ -24,7 +24,8 @@
             android:exported="false" />
         <activity
             android:name=".AddProductActivity"
-            android:exported="false" />
+            android:parentActivityName=".ProductActivity"
+            />
         <activity
             android:name=".ProductActivity"
             android:exported="true">

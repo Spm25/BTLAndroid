@@ -7,19 +7,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.DialogPreference;
 import android.widget.Button;
 
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
-public class MainActivity extends AppCompatActivity {
+public class QRScanActivity extends AppCompatActivity {
     Button btn_scan;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.product_layout);
         btn_scan = findViewById(R.id.btn_scan);
         btn_scan.setOnClickListener(v->
         {
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
     ActivityResultLauncher<ScanOptions> barLaucher = registerForActivityResult(new ScanContract(),result->{
         if(result.getContents()!=null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(QRScanActivity.this);
             builder.setTitle("Result");
             builder.setMessage(result.getContents());
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

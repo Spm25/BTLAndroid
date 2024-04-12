@@ -4,23 +4,23 @@ public class Product {
 private int id;
 private String name;
 private int amount;
-private int price;
-private String Image;
+private double price;
+private String image;
 
     public String getImage() {
-        return Image;
+        return image;
     }
 
     public void setImage(String image) {
-        Image = image;
+        this.image = image;
     }
 
-    public Product(int id, String name, int amount, int price, String image) {
+    public Product(int id, String name, int amount, double price, String image) {
         this.id = id;
         this.name = name;
         this.amount = amount;
         this.price = price;
-        this.Image = image;
+        this.image = image;
     }
 
     public int getId() {
@@ -39,11 +39,11 @@ private String Image;
         this.amount = amount;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

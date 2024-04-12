@@ -6,10 +6,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -44,7 +42,7 @@ public class AdapterProduct extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
         if(v == null){
-            v = inflate.inflate(R.layout.layout,null);
+            v = inflate.inflate(R.layout.item_product_layout,null);
         }
         TextView id = v.findViewById(R.id.txtid);
         TextView sp = v.findViewById(R.id.txtsp);

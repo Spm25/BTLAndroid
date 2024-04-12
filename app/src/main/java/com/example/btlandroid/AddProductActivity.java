@@ -1,9 +1,10 @@
 package com.example.btlandroid;
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+
 import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 import android.app.AlertDialog;
@@ -12,13 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 public class AddProductActivity extends AppCompatActivity {
 
+    private String imagePath;
     private EditText edProductName;
-    private EditText edProductId;
     private EditText edProductPrice;
     private EditText edProductQuantity;
     private Button btCreate;
@@ -30,7 +28,7 @@ public class AddProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_product);
+        setContentView(R.layout.product_detail_layout);
 
         mToolbar = findViewById(R.id.tb);
         setSupportActionBar(mToolbar);
@@ -39,6 +37,27 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openImageLibrary();
+            }
+        });
+
+        imagePath = "";
+        edProductName = findViewById(R.id.ed_product);
+        edProductPrice = findViewById(R.id.ed_price);
+        edProductQuantity = findViewById(R.id.ed_quantity);
+        btCreate = findViewById(R.id.btCreate);
+
+        btCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Gọi phương thức để thêm sản phẩm
+                // Lấy các giá trị từ các EditText
+                String productName = edProductName.getText().toString().trim();
+                int productQuantity = Integer.parseInt(edProductQuantity.getText().toString().trim());
+                double productPrice = Double.parseDouble(edProductPrice.getText().toString().trim());
+
+                // Gọi phương thức để thêm sản phẩm
+                SQLiteManager db = new SQLiteManager(AddProductActivity.this);
+                db.addProduct(productName, productQuantity, productPrice, imagePath);
             }
         });
     }
@@ -72,6 +91,9 @@ public class AddProductActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri imageUri = data.getData();
             imageView.setImageURI(imageUri);
+
+            // Lấy đường dẫn của ảnh từ Uri và lưu vào biến imagePath
+            imagePath = imageUri.toString();
         }
     }
 }

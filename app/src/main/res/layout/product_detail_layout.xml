@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingBottom="5sp"
-                android:text="Mã sản phẩm"
+                android:text="Số lượng"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -111,7 +111,7 @@
         <TableRow>
 
             <EditText
-                android:id="@+id/ed_id_product"
+                android:id="@+id/ed_quantity"
 
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -150,44 +150,16 @@
         android:layout_marginTop="11dp"
         android:layout_marginBottom="20dp">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="174dp"
-            android:layout_height="35dp"
-            android:layout_marginBottom="52dp"
-            android:paddingBottom="5sp"
-            android:text="Số lượng"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/ed_quantity_product"
-            android:layout_width="177dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="34dp"
-            android:background="@drawable/btn_shape"
-            android:hint="0"
-            android:inputType="text"
-            android:lineSpacingExtra="34sp"
-            android:padding="12dp"
-            android:paddingBottom="5sp"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <Button
             android:id="@+id/btCreate"
             android:layout_width="147dp"
             android:layout_height="48dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="120dp"
             android:text="Thêm mới"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.926" />
+            app:layout_constraintVertical_bias="0.41" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

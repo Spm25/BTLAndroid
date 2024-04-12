@@ -39,7 +39,7 @@ public class AdapterInvoice extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
         if(v == null){
-            v = inflate.inflate(R.layout.bill_layout,null);
+            v = inflate.inflate(R.layout.invoice_item_layout,null);
         }
 
         TextView id = v.findViewById(R.id.txtid);
@@ -51,7 +51,7 @@ public class AdapterInvoice extends BaseAdapter {
         String dateString = dateFormat.format(data.get(position).getDate());
         date.setText(dateString);
         price.setText(String.valueOf(data.get(position).getPrice()));
-        create.setText(data.get(position).getCreate());
+        create.setText(data.get(position).getCreator());
         return v;
     }
 }
