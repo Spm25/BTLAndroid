@@ -2,6 +2,7 @@ package com.example.btlandroid;
 
 public class Product {
 private int id;
+private String name;
 private int amount;
 private int price;
 private String Image;
@@ -14,8 +15,9 @@ private String Image;
         Image = image;
     }
 
-    public Product(int id, int amount, int price, String image) {
+    public Product(int id, String name, int amount, int price, String image) {
         this.id = id;
+        this.name = name;
         this.amount = amount;
         this.price = price;
         this.Image = image;
@@ -45,4 +47,12 @@ private String Image;
         this.price = price;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

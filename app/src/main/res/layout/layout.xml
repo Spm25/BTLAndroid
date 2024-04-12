@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:id="@+id/layout_item">
 
     <ImageView
         android:layout_width="130dp"
@@ -15,6 +16,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtid"
+            android:text="hello"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
