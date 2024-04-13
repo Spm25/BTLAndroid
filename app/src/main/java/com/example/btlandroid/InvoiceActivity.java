@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
+import java.util.Collections;
+import java.util.Comparator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -69,5 +73,38 @@ public class InvoiceActivity extends AppCompatActivity {
 
         adapterInvoice = new AdapterInvoice(this,listInvoice);
         listView.setAdapter(adapterInvoice);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.action_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        // Xử lý sự kiện khi người dùng click vào mục sắp xếp theo thời gian
+        if (id == R.id.sid) {
+            Collections.sort(listInvoice, new Comparator<Invoice>() {
+                @Override
+                public int compare(Invoice i1, Invoice i2) {
+                    return i1.getDate().compareTo(i2.getDate());
+                }
+            });
+            adapterInvoice.notifyDataSetChanged();
+            return true;
+        }
+        // Xử lý sự kiện khi người dùng click vào mục sắp xếp theo giá trị
+        if (id == R.id.sn) {
+            Collections.sort(listInvoice, new Comparator<Invoice>() {
+                @Override
+                public int compare(Invoice i1, Invoice i2) {
+                    return Integer.compare(i1.getPrice(), i2.getPrice());
+                }
+            });
+            adapterInvoice.notifyDataSetChanged();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

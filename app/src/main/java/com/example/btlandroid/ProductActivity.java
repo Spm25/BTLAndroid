@@ -11,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
+import java.util.Collections;
+import java.util.Comparator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -112,5 +116,55 @@ public class ProductActivity extends AppCompatActivity {
         }
         return productList;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.action_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        // Xử lý sự kiện khi người dùng click vào mục sắp xếp theo ID
+        if (id == R.id.sid) {
+            Collections.sort(productList, new Comparator<Product>() {
+                @Override
+                public int compare(Product p1, Product p2) {
+                    return Integer.compare(p1.getId(), p2.getId());
+                }
+            });
+            adapterProduct.notifyDataSetChanged();
+            return true;
+        }
+
+        // Xử lý sự kiện khi người dùng click vào mục sắp xếp theo tên
+        if (id == R.id.sn) {
+            Collections.sort(productList, new Comparator<Product>() {
+                @Override
+                public int compare(Product p1, Product p2) {
+                    return p1.getName().compareTo(p2.getName());
+                }
+            });
+            adapterProduct.notifyDataSetChanged();
+            return true;
+        }
+
+        // Xử lý sự kiện khi người dùng click vào mục sắp xếp theo số lượng
+        if (id == R.id.ssl) {
+            Collections.sort(productList, new Comparator<Product>() {
+                @Override
+                public int compare(Product p1, Product p2) {
+                    return Integer.compare(p1.getAmount(), p2.getAmount());
+                }
+            });
+            adapterProduct.notifyDataSetChanged();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }
