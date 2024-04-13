@@ -2,6 +2,8 @@ package com.example.btlandroid;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,8 +56,10 @@ public class AdapterProduct extends BaseAdapter{
         sp.setText(String.valueOf(data.get(position).getName()));
         sl.setText(String.valueOf(data.get(position).getAmount()));
         gia.setText(String.valueOf(data.get(position).getPrice()));
-        Uri path = Uri.parse(data.get(position).getImage());
-        Glide.with(activity).load(path).into(img);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(data.get(position).getImage(), 0, data.get(position).getImage().length);
+        img.setImageBitmap(bitmap);
+//        Uri path = Uri.parse(data.get(position).getImage());
+//        Glide.with(activity).load(path).into(img);
         return v;
     }
 }

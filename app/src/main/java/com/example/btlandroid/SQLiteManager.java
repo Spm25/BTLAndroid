@@ -28,7 +28,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
     private static final String KEY_NAME = "name";
     private static final String KEY_AMOUNT = "amount";
     private static final String KEY_PRICE = "price";
-    private static final String KEY_IMAGE = "image";
+    private static final String KEY_IMAGE = "image_blob";
 
     // INVOICE Table - column names
     private static final String KEY_DATE = "date";
@@ -40,7 +40,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_PRODUCT = "CREATE TABLE "
             + TABLE_PRODUCT + "(" + KEY_PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + KEY_NAME + " TEXT," + KEY_AMOUNT + " INTEGER," + KEY_PRICE + " REAL,"
-            + KEY_IMAGE + " TEXT" + ")";
+            + KEY_IMAGE + " BLOB" + ")";
 
     // Invoice table create statement
     private static final String CREATE_TABLE_INVOICE = "CREATE TABLE "
@@ -73,11 +73,12 @@ public class SQLiteManager extends SQLiteOpenHelper {
         // on upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_INVOICE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_INVOICE_PRODUCT);
 
         // create new tables
         onCreate(db);
     }
-    public void addProduct(String name, int amount, double price, String image) {
+    public void addProduct(String name, int amount, double price, byte[] image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, name);
@@ -95,6 +96,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
         // Closing database connection
         db.close();
     }
+
     public Cursor readAllProducts(){
         String query = "select * from "+TABLE_PRODUCT;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -108,12 +110,33 @@ public class SQLiteManager extends SQLiteOpenHelper {
     public void updateProduct(Product product){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(KEY_PRODUCT_ID, product.getId());
         values.put(KEY_NAME, product.getName());
         values.put(KEY_AMOUNT, product.getAmount());
         values.put(KEY_PRICE, product.getPrice());
         values.put(KEY_IMAGE, product.getImage());
 
-        db.update(TABLE_PRODUCT, values, KEY_PRODUCT_ID + "=?", new String[]{String.valueOf(product.getId())});
+        long result = db.update(TABLE_PRODUCT, values, KEY_PRODUCT_ID + "=?", new String[]{String.valueOf(product.getId())});
+        if(result==-1){
+            Toast.makeText(context, "Failed update",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Success update",Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+    }
+    public void deleteProduct(Product product){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try{
+            // Xóa tất cả các bản ghi liên quan đến sản phẩm này trong bảng invoice_product
+            db.delete(TABLE_INVOICE_PRODUCT, KEY_PRODUCT_ID + "=?", new String[]{String.valueOf(product.getId())});
+        }
+        catch (Exception e){
+            Toast.makeText(context, "Looix khi xoa ",Toast.LENGTH_SHORT);
+        }
+        // Xóa sản phẩm từ bảng product
+        db.delete(TABLE_PRODUCT, KEY_PRODUCT_ID + "=?", new String[]{String.valueOf(product.getId())});
 
         db.close();
     }

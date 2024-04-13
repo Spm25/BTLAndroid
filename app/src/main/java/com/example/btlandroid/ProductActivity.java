@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductActivity extends AppCompatActivity {
-    private ListView listView;
+    private ListView listProduct;
     private ArrayList<Product> productList ;
-    private Spinner actionMenu;
+    private Spinner mnSort;
     private AdapterProduct adapterProduct;
     private ArrayList<String> menuItems;
-    private ImageView imageView;
+    private ImageView ivInvoice;
     private static List<Product> data;
     private FloatingActionButton btnAdd;
     IntentFilter intentFilter;
@@ -32,8 +32,8 @@ public class ProductActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_layout);
-        listView  = findViewById(R.id.list_item);
-        actionMenu = findViewById(R.id.mySpinner);
+        listProduct = findViewById(R.id.list_item);
+        mnSort = findViewById(R.id.mySpinner);
         btnAdd = findViewById(R.id.btn_add);
 
         menuItems = new ArrayList<>();
@@ -45,10 +45,10 @@ public class ProductActivity extends AppCompatActivity {
         adapterMenu.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Đặt Adapter cho Spinner
-        actionMenu.setAdapter(adapterMenu);
+        mnSort.setAdapter(adapterMenu);
 
         // Xử lý sự kiện khi một mục được chọn từ Spinner
-        actionMenu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mnSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Lấy mục được chọn
@@ -64,9 +64,9 @@ public class ProductActivity extends AppCompatActivity {
         productList  = readAllProductsFromDB();
 
         adapterProduct = new AdapterProduct(this,productList );
-        listView.setAdapter(adapterProduct);
-        imageView = findViewById(R.id.ivList);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        listProduct.setAdapter(adapterProduct);
+        ivInvoice = findViewById(R.id.ivList);
+        ivInvoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Chuyển sang Activity 2 khi nhấp vào ImageView
@@ -76,10 +76,10 @@ public class ProductActivity extends AppCompatActivity {
         });
 
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Product product = productList .get(position);
+                Product product = productList.get(position);
                 Intent intent = new Intent(ProductActivity.this, ProductDetailActivity.class);
 
                 // Truyền thông tin của sản phẩm được chọn sang AddProductActivity
@@ -93,6 +93,7 @@ public class ProductActivity extends AppCompatActivity {
             }
         });
 
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +102,15 @@ public class ProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        productList  = readAllProductsFromDB();
+
+        adapterProduct = new AdapterProduct(this,productList );
+        listProduct.setAdapter(adapterProduct);
     }
 
     // Phương thức để đọc tất cả các sản phẩm từ cơ sở dữ liệu
@@ -113,7 +123,7 @@ public class ProductActivity extends AppCompatActivity {
             String name = cursor.getString(1);
             int amount = Integer.parseInt(cursor.getString(2));
             double price = Double.parseDouble(cursor.getString(3));
-            String image = cursor.getString(4);
+            byte[] image = cursor.getBlob(4); // Chuyển dữ liệu ảnh từ BLOB thành mảng byte
             productList.add(new Product(id, name, amount, price, image));
         }
         return productList;

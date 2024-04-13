@@ -1,21 +1,13 @@
 package com.example.btlandroid;
 
 public class Product {
-private int id;
-private String name;
-private int amount;
-private double price;
-private String image;
+    private int id;
+    private String name;
+    private int amount;
+    private double price;
+    private byte[] image;
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Product(int id, String name, int amount, double price, String image) {
+    public Product(int id, String name, int amount, double price, byte[] image) {
         this.id = id;
         this.name = name;
         this.amount = amount;
@@ -47,6 +39,21 @@ private String image;
         this.price = price;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public String getName() {
         return name;

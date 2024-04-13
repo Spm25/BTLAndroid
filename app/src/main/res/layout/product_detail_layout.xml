@@ -129,7 +129,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_shape"
                 android:hint="0"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:padding="12dp" />
 
             <EditText
