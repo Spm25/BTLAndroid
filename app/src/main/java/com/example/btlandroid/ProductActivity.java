@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +27,6 @@ public class ProductActivity extends AppCompatActivity {
     private ImageView imageView;
     private static List<Product> data;
     private FloatingActionButton btnAdd;
-    //khai dayyy
     IntentFilter intentFilter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +80,15 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Product product = productList .get(position);
-                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
+                Intent intent = new Intent(ProductActivity.this, ProductDetailActivity.class);
+
+                // Truyền thông tin của sản phẩm được chọn sang AddProductActivity
+                intent.putExtra("productId", product.getId());
+                intent.putExtra("productName", product.getName());
+                intent.putExtra("productQuantity", product.getAmount());
+                intent.putExtra("productPrice", product.getPrice());
+                intent.putExtra("productImage", product.getImage());
+
                 startActivity(intent);
             }
         });
@@ -90,11 +96,11 @@ public class ProductActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
+                Intent intent = new Intent(ProductActivity.this, ProductDetailActivity.class);
+                intent.putExtra("btnXoa","false");
                 startActivity(intent);
             }
         });
-
     }
 
     // Phương thức để đọc tất cả các sản phẩm từ cơ sở dữ liệu

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="5sp"
-    tools:context=".AddProductActivity">
+    android:visibility="visible"
+    tools:context=".ProductDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/AppBarLayout"
@@ -13,9 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:gravity="center"
-        android:theme="@style/ThemeOverlay.AppCompat"
-
-        >
+        android:theme="@style/ThemeOverlay.AppCompat">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb"
@@ -25,8 +24,19 @@
             android:textAlignment="center"
             app:navigationIcon="@drawable/outline_arrow_back_24"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Thêm sản phẩm" />
+            app:title="Sản phẩm">
 
+            <!-- Nút Lưu -->
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:text="Lưu"
+                android:textAlignment="center" />
+
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -143,23 +153,33 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cs_quantity"
-        android:layout_width="381dp"
-        android:layout_height="87dp"
+        android:layout_width="377dp"
+        android:layout_height="175dp"
         android:layout_below="@+id/tableLayout2"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="20dp">
 
         <Button
-            android:id="@+id/btCreate"
+            android:id="@+id/btDelete"
             android:layout_width="147dp"
             android:layout_height="48dp"
-            android:layout_marginEnd="120dp"
-            android:text="Thêm mới"
+            android:layout_marginEnd="112dp"
+            android:text="Xóa"
+            android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.41" />
+            app:layout_constraintVertical_bias="0.975" />
+
+        <ImageView
+            android:id="@+id/ivQR"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_marginEnd="132dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/gallery" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

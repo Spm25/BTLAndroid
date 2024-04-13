@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -23,7 +24,7 @@
             android:name=".InvoiceActivity"
             android:exported="false" />
         <activity
-            android:name=".AddProductActivity"
+            android:name=".ProductDetailActivity"
             android:parentActivityName=".ProductActivity"
             />
         <activity

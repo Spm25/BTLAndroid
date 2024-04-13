@@ -105,4 +105,16 @@ public class SQLiteManager extends SQLiteOpenHelper {
         }
         return cursor;
     }
+    public void updateProduct(Product product){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, product.getName());
+        values.put(KEY_AMOUNT, product.getAmount());
+        values.put(KEY_PRICE, product.getPrice());
+        values.put(KEY_IMAGE, product.getImage());
+
+        db.update(TABLE_PRODUCT, values, KEY_PRODUCT_ID + "=?", new String[]{String.valueOf(product.getId())});
+
+        db.close();
+    }
 }
