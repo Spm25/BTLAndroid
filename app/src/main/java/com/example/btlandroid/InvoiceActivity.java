@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,13 +23,14 @@ public class InvoiceActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayList<Invoice> listInvoice;
     private AdapterInvoice adapterInvoice;
+    private FloatingActionButton btncaigiday;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_layout);
         listView = findViewById(R.id.list_item);
         imageView = findViewById(R.id.ivCart);
-
+        btncaigiday = findViewById(R.id.btn_add);
         actionMenu = findViewById(R.id.mySpinner);
 
         menuItems = new ArrayList<>();
@@ -64,6 +66,14 @@ public class InvoiceActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btncaigiday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InvoiceActivity.this, InvoiceDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         listInvoice = new ArrayList<Invoice>();
         listInvoice.add(new Invoice(1,new Date(2023, 3, 10),100000,"Ha"));
 

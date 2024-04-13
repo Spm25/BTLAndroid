@@ -68,6 +68,7 @@
             app:layout_constraintTop_toBottomOf="@+id/userLayout"
             android:layout_marginTop="30dp">
 
+
         <TextView
                 android:id="@+id/tvmasp"
                 android:layout_width="0dp"
@@ -131,6 +132,7 @@
                 android:layout_marginLeft="-90dp"
         />
         <Button
+                android:id="@+id/btnHuy"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Hủy"
@@ -140,6 +142,7 @@
 
         />
         <Button
+                android:id="@+id/btnxuat"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="150dp"
@@ -152,6 +155,7 @@
     </LinearLayout>
     <ImageButton
             android:id="@+id/btnScan"
+            android:layout_margin="10dp"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@android:drawable/ic_input_add"
