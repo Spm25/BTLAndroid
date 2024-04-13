@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class DateFormatActivity extends AppCompatActivity {
+public class InvoiceDetailsActivity extends AppCompatActivity {
     TextView txtTime;
     @Override
     protected void onCreate(Bundle savedInstanceState){

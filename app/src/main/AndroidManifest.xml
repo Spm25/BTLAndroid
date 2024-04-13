@@ -27,7 +27,7 @@
             android:parentActivityName=".ProductActivity"
             />
         <activity
-            android:name=".ProductActivity"
+            android:name=".InvoiceDetailsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
