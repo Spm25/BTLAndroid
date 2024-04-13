@@ -5,10 +5,10 @@ import java.util.Date;
 public class Invoice {
     private int id;
     private Date date;
-    private int price;
+    private double price;
     private String creator;
 
-    public Invoice(int id, Date date, int price, String creator) {
+    public Invoice(int id, Date date, double price, String creator) {
         this.id = id;
         this.date = date;
         this.price = price;
@@ -31,11 +31,11 @@ public class Invoice {
         this.date = date;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

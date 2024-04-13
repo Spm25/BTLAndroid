@@ -140,4 +140,32 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
         db.close();
     }
+    public Product getProductById(int productId) {
+        Product product = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.query(TABLE_PRODUCT, null, KEY_PRODUCT_ID + " = ?", new String[]{String.valueOf(productId)}, null, null, null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                int id = Integer.parseInt(cursor.getString(0));
+                String name = cursor.getString(1);
+                int amount = Integer.parseInt(cursor.getString(2));
+                double price = Double.parseDouble(cursor.getString(3));
+                byte[] image = cursor.getBlob(4); // Chuyển dữ liệu ảnh từ BLOB thành mảng byte
+
+                product = new Product(id, name, amount, price, image);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        return product;
+    }
 }

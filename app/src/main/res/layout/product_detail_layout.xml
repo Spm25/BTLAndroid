@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_product"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
@@ -174,9 +174,9 @@
 
         <ImageView
             android:id="@+id/ivQR"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            android:layout_marginEnd="132dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="144dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/gallery" />

@@ -43,8 +43,8 @@
         <ListView
             android:id="@+id/list_item"
             android:layout_width="match_parent"
-            android:layout_height="599dp"
-            tools:listitem="@layout/item_product_layout"/>
+            android:layout_height="543dp"
+            tools:listitem="@layout/item_product_layout" />
 
         <LinearLayout
             android:layout_width="match_parent"

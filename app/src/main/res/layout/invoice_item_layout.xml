@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="60dp"
     android:orientation="horizontal">
     <TextView
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="hello"
+        android:textSize="7sp"
         android:id="@+id/txtid"/>
 
     <TextView
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="hello"
+        android:textSize="17sp"
         android:id="@+id/txtdate"/>
     <TextView
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="hello"
+        android:textSize="17sp"
         android:id="@+id/txtprice"/>
 
     <TextView
         android:layout_width="111dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="hello"
+        android:textSize="17sp"
         android:id="@+id/txtcreate"/>
 </LinearLayout>

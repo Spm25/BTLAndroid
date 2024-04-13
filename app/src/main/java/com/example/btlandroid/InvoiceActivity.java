@@ -76,6 +76,10 @@ public class InvoiceActivity extends AppCompatActivity {
 
         listInvoice = new ArrayList<Invoice>();
         listInvoice.add(new Invoice(1,new Date(2023, 3, 10),100000,"Ha"));
+        listInvoice.add(new Invoice(2, new Date(2023, 3, 11), 150000, "John"));
+        listInvoice.add(new Invoice(3, new Date(2023, 3, 12), 200000, "Alice"));
+        listInvoice.add(new Invoice(4, new Date(2023, 3, 13), 120000, "Bob"));
+        listInvoice.add(new Invoice(5, new Date(2023, 3, 14), 180000, "Emily"));
 
         adapterInvoice = new AdapterInvoice(this,listInvoice);
         listView.setAdapter(adapterInvoice);

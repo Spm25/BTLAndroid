@@ -32,7 +32,7 @@
             android:parentActivityName=".ProductActivity" />
         <activity
                 android:name=".InvoiceDetailsActivity"
-                android:parentActivityName=".ProductActivity"/>
+                android:parentActivityName=".InvoiceActivity"/>
         <activity android:name=".CaptureAct"
                   android:screenOrientation="portrait"
                   android:stateNotNeeded="true"
