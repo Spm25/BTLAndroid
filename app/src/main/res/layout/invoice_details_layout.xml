@@ -84,17 +84,19 @@
                 android:layout_columnWeight="2"/>
 
     </GridLayout>
+
     <ListView
-            android:id="@+id/list_LVitem"
-            android:layout_width="422dp"
-            android:layout_height="343dp"
-            app:layout_constraintBottom_toTopOf="@+id/totalLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-            tools:listitem="@layout/lvitem_product_layout"
-    >
-    </ListView>
+        android:id="@+id/list_LVitem"
+        android:layout_width="408dp"
+        android:layout_height="339dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/totalLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        app:layout_constraintVertical_bias="0.307"
+        tools:listitem="@layout/lvitem_product_layout"></ListView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/totalLayout"
@@ -133,7 +135,7 @@
             android:id="@+id/btnxuat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="32dp"
             android:maxLines="1"
             android:text="Xuất hóa đơn"

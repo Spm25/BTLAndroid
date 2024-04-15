@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ProductActivity extends AppCompatActivity {
@@ -37,9 +39,9 @@ public class ProductActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btn_add);
 
         menuItems = new ArrayList<>();
-        menuItems.add("Sắp xếp theo tên");
-        menuItems.add("Sắp xếp theo giá");
-        menuItems.add("Sắp xếp theo số lượng");
+        menuItems.add(0,"Sắp xếp theo id");
+        menuItems.add(1,"Sắp xếp theo số lượng");
+        menuItems.add(2,"Sắp xếp theo giá");
         // Khởi tạo Adapter cho Spinner
         ArrayAdapter<String> adapterMenu = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, menuItems);
         adapterMenu.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -51,9 +53,19 @@ public class ProductActivity extends AppCompatActivity {
         mnSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // Lấy mục được chọn
-                String selectedItem = parent.getItemAtPosition(position).toString();
-                //Toast.makeText(ProductActivity.this, "Selected item: " + selectedItem, Toast.LENGTH_SHORT).show();
+                switch (position) {
+                    case 0: // Sắp xếp theo id
+                        Collections.sort(productList, Comparator.comparingInt(Product::getId));
+                        break;
+                    case 1: // Sắp xếp theo amount
+                        Collections.sort(productList, Comparator.comparingInt(Product::getAmount));
+                        break;
+                    case 2: // Sắp xếp theo giá
+                        Collections.sort(productList, Comparator.comparingDouble(Product::getAmount));
+                        break;
+                }
+                // Cập nhật ListView sau khi đã sắp xếp
+                adapterProduct.notifyDataSetChanged();
             }
 
             @Override

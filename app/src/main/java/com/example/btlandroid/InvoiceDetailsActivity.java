@@ -26,7 +26,7 @@ public class InvoiceDetailsActivity extends AppCompatActivity {
     ImageButton lvqr;
     Button btnhuy;
     private ListView listView;
-    private AdapterProduct adapterProduct;
+    private InvoiceProductAdapter adapterProduct;
     private ArrayList<Product> productList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,12 @@ public class InvoiceDetailsActivity extends AppCompatActivity {
         // Khởi tạo danh sách sản phẩm
         productList = new ArrayList<>();
         // Thêm các sản phẩm vào danh sách
-//        productList.add(new Product(1, "Product 1", 10, 100.0, null));
-//        productList.add(new Product(2, "Product 2", 20, 200.0, null));
+        productList.add(new Product(1, "Product 1", 10, 100.0, null));
+        productList.add(new Product(2, "Product 2", 20, 200.0, null));
         // Thêm các sản phẩm vào danh sách...
 
         // Khởi tạo AdapterProduct
-        adapterProduct = new AdapterProduct(this, productList);
+        adapterProduct = new InvoiceProductAdapter(this, productList);
 
         // Ánh xạ ListView từ layout
         listView = findViewById(R.id.list_LVitem);
